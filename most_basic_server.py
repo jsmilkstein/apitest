@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import random
 from flask import Flask, request
+import time
 #from flask_httpauth import HTTPBasicAuth
 from flask_restful import Resource, Api, abort
 
@@ -16,6 +17,7 @@ class Agent(Resource):
             return {"Message":"Good checkin"},200
         elif r < 90:
             return {"Message":"Bad request"},400
+        time.sleep(random.random())
         return {"Message":"Server error"},500
 
 api.add_resource(Agent, '/v1/checkin')
