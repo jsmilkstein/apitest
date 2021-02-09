@@ -2,15 +2,12 @@
 import random
 from flask import Flask, request
 import time
-#from flask_httpauth import HTTPBasicAuth
 from flask_restful import Resource, Api, abort
 
 app = Flask(__name__)
 api = Api(app)
 
-#auth = HTTPBasicAuth()
-
-class Agent(Resource):
+class AutomoxBackend(Resource):
     def get(self):
         r = random.randint(1,100)
         if r < 80:
